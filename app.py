@@ -18,7 +18,6 @@ class CRMApp:
         # Cria um novo objeto Lead
         new_lead = Lead(name, company, email)
 
-        # Usa o método 'create' do Repositório para salvar o objeto
         self.repo.create(new_lead)
         print("\nLead adicionado com sucesso!\n")
 
@@ -47,7 +46,7 @@ class CRMApp:
 
         term = input("Digite o nome, empresa ou email para buscar: ").strip().lower()
 
-        # Lista de Leads (objetos) que correspondem ao termo
+        # Lista de Leads que correspondem ao termo
         found = [
             lead for lead in leads
             if term in lead.name.lower() or

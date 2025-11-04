@@ -1,20 +1,18 @@
 from pathlib import Path
 import json
 from typing import List, Dict
-# Importamos a classe Lead para usá-la no repositório
 from stages import Lead
 
 class LeadRepo:
     def __init__(self, db_filename: str = "leads.json"):
         self.DATA_DIR = Path(__file__).resolve().parent
         self.DATA_DIR.mkdir(exist_ok=True)
-        self.DB_PATH = self.DATA_DIR / db_filename # Atributo de instância
+        self.DB_PATH = self.DATA_DIR / db_filename 
 
     def _load_raw_data(self) -> List[Dict]:
         if not self.DB_PATH.exists():
             return []
         try:
-            # O .read_text() e json.loads() são implementados aqui, encapsulando a lógica de IO
             return json.loads(self.DB_PATH.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             return []

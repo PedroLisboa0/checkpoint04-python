@@ -5,5 +5,12 @@
     "email": "teste@gmail.com",
     "stage": "Novo",
     "created": "17/10/2025"
+  },
+  {
+    "name": "alexandre",
+    "company": "FIAP",
+    "email": "alexandre@fiap.com",
+    "stage": "Novo",
+    "created": "03/11/2025"
   }
 ]

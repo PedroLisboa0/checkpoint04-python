@@ -1,7 +1,6 @@
 from datetime import date
 from typing import Dict
 
-# Definição do estágio inicial para novos leads
 INITIAL_STAGE = "Novo"
 
 class Lead:
@@ -10,7 +9,8 @@ class Lead:
         self.company = company 
         self.email = email  
 
-        self.stage = stage if stage is not None else self._default_stage
+        # Define o estágio inicial se não for fornecido
+        self.stage = stage if stage is not None else INITIAL_STAGE
 
         # Define a data de criação
         if created is None:
@@ -33,6 +33,6 @@ class Lead:
             name=data.get("name"),
             company=data.get("company"),
             email=data.get("email"),
-            stage=data.get("stage", cls._default_stage),
+            stage=data.get("stage", INITIAL_STAGE),
             created=data.get("created"),
         )
